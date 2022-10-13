@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+ITEM DETAILS!!!!!!!!
+
+<table>
+    <tr>
+        <td>
+            <img src="{{pick.img.url}}" alt="">
+        </td>
+
+        <td>
+            <li>{{pick.name}}</li>
+            <li>${{pick.price}}</li>
+            <li>{{pick.description}}</li>
+        </td>
+    </tr>
+
+    <tr>
+        <a  href="{% url 'estore:checkout' %}" class="btn btn-info" >Add to Cart</a>
+    </tr>
+</table>
+
+{% endblock %}

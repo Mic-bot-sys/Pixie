@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<title>Pixie</title>
+
+    <!-- Banner Starts Here -->
+    <div class="banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="caption">
+              <h2>PIXIE Offer</h2>
+              <div class="line-dec"></div>
+              <p>PIXIE is the best Online store you can ever encounter in the world which is why you need to shop here and have a sweet experience.
+              <br><br>Please do well to tell your friends about your sweet shopping experience with PIXIE</p>
+              <div class="main-button">
+                {% if user.is_authenticated %}
+                <a href="{% url 'estore:product' %}">Order Now!</a>
+                {% else %}
+                <a href="{% url 'accounts:login' %}">Order Now!</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Banner Ends Here -->
+
+    <!-- Featured Starts Here -->
+    <div class="featured-items">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <div class="line-dec"></div>
+              <h1>Featured Items</h1>
+            </div>
+          </div>
+          
+          <!-- the display of the products -->
+            <div class="featured container no-gutter">
+
+              <div class="row posts">
+                {% for item in itemm %}
+                  <div id="1" class="item new col-md-4">
+                    <a href="{% url 'estore:checkout' %}">
+                      <div class="featured-item">
+                        <img src="{{item.img.url}}" alt="">
+                        <h4>{{item.name}}</h4>
+                        <h6>${{item.price}}</h6>
+                        
+                      </div>
+                    </a>
+                  </div>
+                  {% endfor %}
+              </div>    
+       
+            </div>
+
+
+              <!-- <a href="single-product.html">
+                <div class="featured-item">
+                  <img src="{% static 'images/item-02.jpg' %}" alt="Item 2">
+                  <h4>Erat odio rhoncus</h4>
+                  <h6>$25.00</h6>
+                </div>
+              </a>
+              <a href="single-product.html">
+                <div class="featured-item">
+                  <img src="{% static 'images/item-03.jpg' %}" alt="Item 3">
+                  <h4>Integer vel turpis</h4>
+                  <h6>$35.00</h6>
+                </div>
+              </a>
+              <a href="single-product.html">
+                <div class="featured-item">
+                  <img src="{% static 'images/item-04.jpg' %}" alt="Item 4">
+                  <h4>Sed purus quam</h4>
+                  <h6>$45.00</h6>
+                </div>
+              </a> 
+          <a href="single-product.html">
+                <div class="featured-item">
+                  <img src="{% static 'images/item-05.jpg' %}" alt="Item 5">
+                  <h4>Morbi aliquet</h4>
+                  <h6>$55.00</h6>
+                </div>
+              </a>
+              <a href="single-product.html">
+                <div class="featured-item">
+                  <img src="{% static 'images/item-06.jpg' %}" alt="Item 6">
+                  <h4>Urna ac diam</h4>
+                  <h6>$65.00</h6>
+                </div>
+              </a>
+              <a href="single-product.html">
+                <div class="featured-item">
+                  <img src="{% static 'images/item-04.jpg' %}" alt="Item 7">
+                  <h4>Proin eget imperdiet</h4>
+                  <h6>$75.00</h6>
+                </div>
+              </a>
+              <a href="single-product.html">
+                <div class="featured-item">
+                  <img src="{% static 'images/item-05.jpg' %}" alt="Item 8">
+                  <h4>Nullam risus nisl</h4>
+                  <h6>$85.00</h6>
+                </div>
+              </a>
+              <a href="single-product.html">
+                <div class="featured-item">
+                  <img src="{% static 'images/item-06.jpg' %}" alt="Item 9">
+                  <h4>Cras tempus</h4>
+                  <h6>$95.00</h6>
+                </div>
+              </a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Featred Ends Here -->
+
+{% endblock %}
